@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css?family=Karla&display=swap');
+$primary-text-color: #2B2830;
+$background-color: lighten(#9FB0C9, 20%);
+$button-color: #ff6565;
+$button-color-highlight: lighten($button-color, 20%);
+
+html {
+    font-family: 'Karla';
+    display:flex;
+    justify-content: center;
+    background-color: $background-color;
+    color: $primary-text-color;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    background-color: $button-color-highlight;
+    
+}
+
+button {
+    padding: 10px;
+    border-radius: 5px;
+    border-width: thin;
+    font-family: 'Karla';
+    border-color: $button-color;
+    border-style: solid;
+}
+
+
+
+
+#addTuneDiv {
+
+}
+//add tune
+.mainAddTuneContainer {
+    display:flex;
+    align-content: space-between;
+    justify-content: center;
+    
+}
+
+h3 {
+    display: flex;
+    justify-content: center;
+    color: $primary-text-color
+ };
+ 
+.checkboxWithLabel{
+    display: flex;
+    // flex-direction: column;
+    justify-content: center;
+    //align-content: center;
+    align-items: center;
+  
+} ;
+
+.addTuneButtons {       
+    display: flex;
+    justify-content: center;
+    align-content: space-around;
+    align-items: center;
+    .btnCancel {
+        background-color: $background-color;
+    }
+    .btnSave {
+        background-color:$button-color
+    }
+
+}
