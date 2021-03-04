@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Karla&display=swap');
 $primary-text-color: #2B2830;
+$secondary-text-color: lighten($primary-text-color, 30%);
 $background-color-dark: #9FB0C9;
 $background-color: lighten(#9FB0C9, 20%);
 $button-color: #ff6565;
@@ -42,9 +43,11 @@ button {
     flex-direction: row-reverse;
     padding-right: 20px;
     padding-bottom: 0.8rem;
+    
 }
 
 .btnRemove {
+    grid-column: 4;
     background-color: $background-color;
     &:hover{
         background-color: $background-color-dark;
@@ -60,30 +63,35 @@ button {
 }
 
 .tunesContainer {
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    align-content: space-around;
-
+    // display: flex;
+    // justify-content: flex-start;
+    // flex-direction: column;
+    // align-content: space-around;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 0.5em;
+    grid-template-rows: 1fr 1fr 1fr 1fr ;
 }
 
 .singleTune {
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
-    align-items: center;
-    background-color: none;
+    // display: flex;
+    // justify-content: space-between;
+    // align-content: center;
+    // align-items: center;
+    // background-color: none;
 }
 
 #tuneTitle {
     font-weight: bold;
+    grid-column: 1;
 
 }
 #tuneComposer {
-    font-weight: lighter;
+    color: $secondary-text-color;
+    grid-column: 2;
 }
 #tuneKeys {
-    
+    grid-column: 3
 }
 #addTuneDiv {
 

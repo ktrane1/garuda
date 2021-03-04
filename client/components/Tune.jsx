@@ -14,6 +14,7 @@ const Tune = (props) => {
 
   return (
     <div>
+      
       <div className='singleTune'>
         <div id='tuneTitle'>
           {props.tuneInfo.title}   
@@ -34,7 +35,6 @@ const Tune = (props) => {
           </button>
         </Link>
       </div>
-    
       <hr></hr>
     </div>
   );
