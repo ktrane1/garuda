@@ -9,8 +9,7 @@ class Tunes extends Component {
     this.state = { 
       tunes: [],
     };
-
-    //this.populateTunes = this.populateTunes.bind(this);
+    this.removeTune = this.removeTune.bind(this);
   }
 
   componentDidMount () {
@@ -28,12 +27,32 @@ class Tunes extends Component {
       });
   }
 
+  removeTune (id)  {
+
+    fetch('/remove', {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'Application/JSON'
+      },
+      body: JSON.stringify({id: id})
+    })
+      .then(resp => resp.json())
+      .then(tunes => {
+        this.setState({
+          tunes: [...tunes],
+        });
+      })
+      .catch(err => {
+        console.log('remoteTune fetch /remove ERROR: ', err);
+      });
+      
+  };
 
   render () {
 
     const tuneComponent = this.state.tunes.map((tune, idx) =>{
-      return (<article>
-        <Tune className="tune" key={idx} tuneInfo={tune} />
+      return (<article className='tuneArticle'>
+        <Tune className="tune" key={idx} tuneInfo={tune} removeTuneFunc={this.removeTune} />
       </article>);
     });
     
@@ -41,11 +60,14 @@ class Tunes extends Component {
    
     //return tunes 
     return (
-      <div className='tunesContainer'>
-        <div>
-          <Link to="/create"><button type="button">Add tune</button></Link>
+      <div>
+        <div className="addButtonDiv">
+          <Link to="/create"><button type="button" className="addButton">Add tune</button></Link>
         </div>  
-        {tuneComponent}
+        <div className='tunesContainer'>
+          {tuneComponent}
+        </div>
+       
       </div>
     );
   }

@@ -1,22 +1,41 @@
 import React, { Component, useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 //component for individual tune
+
+
 const Tune = (props) => {
 
+  const refreshTunes = () => {
+    window.location.reload(false);
+  };
+  
+  
 
-  console.log('tune props----------', props);
 
   return (
-    <div className='singleTune'>
-      <div id='tuneTitle'>
-        {props.tuneInfo.title}   
+    <div>
+      <div className='singleTune'>
+        <div id='tuneTitle'>
+          {props.tuneInfo.title}   
+        </div>
+        <div id='tuneComposer'>
+          {props.tuneInfo.composer}   
+        </div>
+        <div id='tuneKeys'>
+          {props.tuneInfo.keys.join(', ')}   
+        </div>
+        <Link to="/" className="backLink">
+          <button id="removeButton" type="button" className="btnRemove" 
+            onClick={
+              () => 
+                props.removeTuneFunc(props.tuneInfo._id)
+            }>
+                Remove
+          </button>
+        </Link>
       </div>
-      <div id='tuneComposer'>
-        {props.tuneInfo.composer}   
-      </div>
-      <div>
-        {props.tuneInfo.keys.join(', ')}   
-      </div>
+    
+      <hr></hr>
     </div>
   );
 };

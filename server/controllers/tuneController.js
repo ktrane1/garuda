@@ -17,7 +17,7 @@ tuneController.getTunes = (req, res, next) => {
 };
 
 tuneController.createTune = (req, res, next) => {
-  console.log(req.body);
+
   Tune.create({
     title: req.body.title,
     composer: req.body.composer,
@@ -31,6 +31,22 @@ tuneController.createTune = (req, res, next) => {
         message: 'There was error',
         error: err,
       });   
+    });
+};
+
+tuneController.removeTune = (req, res, next) => {
+  
+  Tune.deleteOne({
+    _id: req.body.id,
+  })
+    .then(data=> {
+      return next();
+    })
+    .catch(err => {
+      next({
+        message: 'Could not delete',
+        err: err,
+      });
     });
 };
 

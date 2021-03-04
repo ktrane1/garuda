@@ -1,10 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Karla&display=swap');
 $primary-text-color: #2B2830;
+$background-color-dark: #9FB0C9;
 $background-color: lighten(#9FB0C9, 20%);
 $button-color: #ff6565;
 $button-color-highlight: lighten($button-color, 20%);
 
 html {
+    font-family: 'Karla';
+    margin: 20px;
+    background-color: $background-color;
+}
+
+header {
     font-family: 'Karla';
     display:flex;
     justify-content: center;
@@ -13,10 +20,7 @@ html {
 }
 
 h1 {
-    display: flex;
-    justify-content: center;
-    background-color: $button-color-highlight;
-    
+    background-color: $button-color-highlight;  
 }
 
 button {
@@ -24,6 +28,7 @@ button {
     border-radius: 5px;
     border-width: thin;
     font-family: 'Karla';
+    font-size: 0.8rem;
     border-color: $button-color;
     border-style: solid;
 }
@@ -31,6 +36,55 @@ button {
 
 
 
+//main page
+.addButtonDiv {
+    display: flex;
+    flex-direction: row-reverse;
+    padding-right: 20px;
+    padding-bottom: 0.8rem;
+}
+
+.btnRemove {
+    background-color: $background-color;
+    &:hover{
+        background-color: $background-color-dark;
+        border-color: $background-color-dark;
+    }
+}
+
+.addButton {
+    background-color: $background-color;
+    &:hover {
+        background-color: $button-color;
+    }
+}
+
+.tunesContainer {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-content: space-around;
+
+}
+
+.singleTune {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    background-color: none;
+}
+
+#tuneTitle {
+    font-weight: bold;
+
+}
+#tuneComposer {
+    font-weight: lighter;
+}
+#tuneKeys {
+    
+}
 #addTuneDiv {
 
 }
@@ -42,6 +96,11 @@ button {
     
 }
 
+
+
+
+
+//addtune page
 h3 {
     display: flex;
     justify-content: center;
@@ -64,9 +123,16 @@ h3 {
     align-items: center;
     .btnCancel {
         background-color: $background-color;
+        &:hover{
+            background-color: $background-color-dark;
+            border-color: $background-color-dark;
+        }
     }
     .btnSave {
-        background-color:$button-color
+        background-color:$button-color-highlight;
+        &:hover{
+            background-color: $button-color;
+        }
     }
 
 }

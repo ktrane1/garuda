@@ -97,8 +97,10 @@ const AddTune = props => {
                 Cancel
               </button>
             </Link>
+            <Link to="/" className="backLink">
+              <button type="button" className="btnSave" onClick={saveTune}>Save</button>
+            </Link>
             
-            <button type="button" className="btnSave" onClick={saveTune}>Save</button>
           </div>
         </div>
 
