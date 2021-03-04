@@ -1,5 +1,6 @@
 import React, { Component, useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import { Col, Row, Grid } from 'react-flexbox-grid'
 import Tune from './Tune';
 
 
@@ -64,9 +65,9 @@ class Tunes extends Component {
         <div className="addButtonDiv">
           <Link to="/create"><button type="button" className="addButton">Add tune</button></Link>
         </div>  
-        <div className='tunesContainer'>
+        <Grid fluid className='tunesContainer'>
           {tuneComponent}
-        </div>
+        </Grid>
        
       </div>
     );

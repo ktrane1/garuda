@@ -1,8 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Karla&display=swap');
+
 $primary-text-color: #2B2830;
 $secondary-text-color: lighten($primary-text-color, 30%);
 $background-color-dark: #9FB0C9;
 $background-color: lighten(#9FB0C9, 20%);
+$background-color-light: lighten($background-color, 5%);
+
+$shadow: lighten($background-color-dark, 15%);
 $button-color: #ff6565;
 $button-color-highlight: lighten($button-color, 20%);
 
@@ -11,7 +15,10 @@ html {
     margin: 20px;
     background-color: $background-color;
 }
-
+main {
+    margin-right: 40px;
+    margin-left: 40px;
+}
 header {
     font-family: 'Karla';
     display:flex;
@@ -21,17 +28,20 @@ header {
 }
 
 h1 {
-    background-color: $button-color-highlight;  
+    background-color: $button-color-highlight;
+    padding: 0.5vw; 
+    padding: 1vw;
+    box-shadow: 0px 0px 5px 5px $shadow;
 }
 
 button {
     padding: 10px;
-    border-radius: 5px;
     border-width: thin;
     font-family: 'Karla';
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     border-color: $button-color;
-    border-style: solid;
+    border-style: none;
+  
 }
 
 
@@ -47,7 +57,7 @@ button {
 }
 
 .btnRemove {
-    grid-column: 4;
+ 
     background-color: $background-color;
     &:hover{
         background-color: $background-color-dark;
@@ -56,42 +66,37 @@ button {
 }
 
 .addButton {
-    background-color: $background-color;
+    background-color: $background-color-light;
     &:hover {
         background-color: $button-color;
     }
 }
 
 .tunesContainer {
-    // display: flex;
-    // justify-content: flex-start;
-    // flex-direction: column;
-    // align-content: space-around;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 0.5em;
-    grid-template-rows: 1fr 1fr 1fr 1fr ;
+  padding: 2em;
 }
 
 .singleTune {
-    // display: flex;
-    // justify-content: space-between;
-    // align-content: center;
-    // align-items: center;
-    // background-color: none;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    background-color: $background-color-light;
+    box-shadow: 0px 0px 2px 2px $shadow;
+    padding: 0.3vw;
 }
 
 #tuneTitle {
     font-weight: bold;
-    grid-column: 1;
+    
 
 }
 #tuneComposer {
     color: $secondary-text-color;
-    grid-column: 2;
+   
 }
 #tuneKeys {
-    grid-column: 3
+
 }
 #addTuneDiv {
 
@@ -101,12 +106,21 @@ button {
     display:flex;
     align-content: space-between;
     justify-content: center;
+
+   
     
 }
 
-
-
-
+.mainAddTuneSection {
+    padding: 3vw;
+    display:flex;
+    flex-direction: column;
+    align-content: space-between;
+    justify-content: center;
+    background-color: $background-color-light;
+    box-shadow: 0px 0px 5px 5px $shadow;   
+    
+}
 
 //addtune page
 h3 {
@@ -126,9 +140,10 @@ h3 {
 
 .addTuneButtons {       
     display: flex;
-    justify-content: center;
-    align-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    padding: 1vw;
+
     .btnCancel {
         background-color: $background-color;
         &:hover{
@@ -142,5 +157,16 @@ h3 {
             background-color: $button-color;
         }
     }
+
+}
+
+.input {
+    padding: 1vw;
+    background-color: $background-color-light;
+    border-color: $background-color;
+    border-style: solid;
+    border-radius: 3px;
+    font-family: 'Karla';
+    font-size: 14px;
 
 }

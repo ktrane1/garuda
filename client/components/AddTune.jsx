@@ -42,7 +42,7 @@ const AddTune = props => {
       keys
     };
     console.log(body);
-    fetch('/create', {
+    fetch('/create/new', {
       method: 'POST',
       headers: {
         'Content-Type': 'Application/JSON'
@@ -80,27 +80,25 @@ const AddTune = props => {
       <section className="mainAddTuneSection">
         <h3>Add tune</h3>
         <div className="inputTitle">     
-          <input name="title" placeholder="Title" value={title} onChange={titleOnChange} />
+          <input name="title" placeholder="Title" value={title} onChange={titleOnChange} className="input" />
           {titleError ? (<span className="errorMsg">{titleError}</span>) : null}
         </div>
         <div className="inputComposer">       
-          <input name="inputComposer" placeholder="Composer" value={composer} onChange={composerOnChange} />
+          <input name="inputComposer" placeholder="Composer" value={composer} onChange={composerOnChange}className="input" />
         </div>
         <div className="createTuneFields">
           <label htmlFor="keys">Keys: </label>
           <div className="keyCheckboxContainer">
             {keyCheckboxes}
           </div>
-          <div className="addTuneButtons">
-            <Link to="/" className="backLink">
-              <button id="cancelButton" type="button" className="btnCancel">
-                Cancel
-              </button>
-            </Link>
+          <div className="addTuneButtons">         
             <Link to="/" className="backLink">
               <button type="button" className="btnSave" onClick={saveTune}>Save</button>
             </Link>
-            
+            <Link to="/" className="backLink">
+              <button id="cancelButton" type="button" className="btnCancel">Cancel</button>
+            </Link>
+         
           </div>
         </div>
 

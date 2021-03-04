@@ -36,6 +36,11 @@ module.exports = {
         exclude: [/node_modules/, /client\/stylesheets\/modules/],
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader?modules',
+        include: /flexboxgrid/
+      }
     ],
   }
 }

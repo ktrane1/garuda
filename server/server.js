@@ -11,11 +11,16 @@ const mongoose = require('mongoose');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(express.static(path.resolve(__dirname, '../client/index.html')));
+
 app.get('/', (req, res) => {
   return res.status(200).sendFile(path.resolve(__dirname, '../client/index.html'));
 });
+app.get('/create', (req, res) => {
+  return res.status(200).sendFile(path.resolve(__dirname, '../client/index.html'));
+});
 
-app.post('/create', 
+app.post('/create/new', 
   tuneController.createTune, 
   (req, res) => {
     return res.status(200).json();
@@ -43,10 +48,10 @@ app.delete('/remove',
 
 
 
-
 app.use('*', (req,res) => {
   res.status(404).send('Not Found');
 });
+
 
 app.use((err, req, res, next) => {
   console.log(err);

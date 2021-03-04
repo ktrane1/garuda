@@ -1,5 +1,6 @@
 import React, { Component, useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import { Col, Row, Grid } from 'react-flexbox-grid'
 //component for individual tune
 
 
@@ -15,16 +16,16 @@ const Tune = (props) => {
   return (
     <div>
       
-      <div className='singleTune'>
-        <div id='tuneTitle'>
+      <Row className='singleTune'>
+        <Col xs={1} md={5} id='tuneTitle'>
           {props.tuneInfo.title}   
-        </div>
-        <div id='tuneComposer'>
+        </Col>
+        <Col xs={6} md={3} id='tuneComposer'>
           {props.tuneInfo.composer}   
-        </div>
-        <div id='tuneKeys'>
+        </Col>
+        <Col xs={6} md={3} id='tuneKeys'>
           {props.tuneInfo.keys.join(', ')}   
-        </div>
+        </Col>
         <Link to="/" className="backLink">
           <button id="removeButton" type="button" className="btnRemove" 
             onClick={
@@ -34,7 +35,7 @@ const Tune = (props) => {
                 Remove
           </button>
         </Link>
-      </div>
+      </Row>
       <hr></hr>
     </div>
   );
