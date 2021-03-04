@@ -17,6 +17,10 @@ app.get('/', (req, res) => {
   return res.status(200).sendFile(path.resolve(__dirname, '../client/index.html'));
 });
 
+app.get('/updateKeys', (req, res) => {
+  return res.status(200).sendFile(path.resolve(__dirname, '../client/index.html'));
+});
+
 app.get('/create', (req, res) => {
   return res.status(200).sendFile(path.resolve(__dirname, '../client/index.html'));
 });
@@ -32,6 +36,14 @@ app.get('/gettunes',
   (req, res) => {
     return res.status(200).json();
   });
+
+app.put('/updateKeys/update', 
+  tuneController.updateKeys,
+  tuneController.getTunes,
+  (req, res) => {
+    return res.status(200).json();
+  } 
+); 
 
 app.delete('/remove', 
   tuneController.removeTune, 

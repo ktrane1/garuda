@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Switch, Route, Router, Link } from 'react-router-dom';
+import { Switch, Route, Router, Link, useLocation } from 'react-router-dom';
 
 import AddTune from './components/AddTune';
 import Tunes from './components/Tunes';
+import UpdateKeys from './components/UpdateKeys';
 import './scss/styles.scss';
 
 class App extends Component {
@@ -22,6 +23,13 @@ class App extends Component {
                 () => <Tunes />
               }>         
             </Route>
+            <Route
+              exact
+              path="/updateKeys"
+              component={
+                () => <UpdateKeys info={useLocation()}/>
+              }>         
+            </Route>        
             <Route
               exact
               path="/create"

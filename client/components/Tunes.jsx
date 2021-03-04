@@ -1,6 +1,6 @@
 import React, { Component, useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { Col, Row, Grid } from 'react-flexbox-grid'
+import { Col, Row, Grid } from 'react-flexbox-grid';
 import Tune from './Tune';
 
 
@@ -10,7 +10,9 @@ class Tunes extends Component {
     this.state = { 
       tunes: [],
     };
+
     this.removeTune = this.removeTune.bind(this);
+    this.updateKeys = this.updateKeys.bind(this);
   }
 
   componentDidMount () {
@@ -47,14 +49,41 @@ class Tunes extends Component {
         console.log('remoteTune fetch /remove ERROR: ', err);
       });
       
-  };
+  }
+
+  updateKeys (keys)  {
+
+    // fetch('/remove', {
+    //   method: 'DELETE',
+    //   headers: {
+    //     'Content-Type': 'Application/JSON'
+    //   },
+    //   body: JSON.stringify({id: id})
+    // })
+    //   .then(resp => resp.json())
+    //   .then(tunes => {
+    //     this.setState({
+    //       tunes: [...tunes],
+    //     });
+    //   })
+    //   .catch(err => {
+    //     console.log('remoteTune fetch /remove ERROR: ', err);
+    //   });
+      
+  }
 
   render () {
 
     const tuneComponent = this.state.tunes.map((tune, idx) =>{
-      return (<article className='tuneArticle'>
-        <Tune className="tune" key={idx} tuneInfo={tune} removeTuneFunc={this.removeTune} />
-      </article>);
+      return (
+        <article key={idx} className='tuneArticle'>
+          <Tune 
+            className="tune" 
+            key={'tune' + idx} 
+            tuneInfo={tune} 
+            removeTuneFunc={this.removeTune} 
+            updateKeysFunc={this.updateKeys} />
+        </article>);
     });
     
   
@@ -63,7 +92,13 @@ class Tunes extends Component {
     return (
       <div>
         <div className="addButtonDiv">
-          <Link to="/create"><button type="button" className="addButton">Add tune</button></Link>
+          <Link to="/create">
+            <button 
+              type="button" 
+              className="addButton">
+              Add tune
+            </button>
+          </Link>
         </div>  
         <Grid fluid className='tunesContainer'>
           {tuneComponent}

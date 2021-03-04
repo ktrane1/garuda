@@ -41,7 +41,7 @@ const AddTune = props => {
       composer,
       keys
     };
-    console.log(body);
+ 
     fetch('/create/new', {
       method: 'POST',
       headers: {
@@ -51,7 +51,7 @@ const AddTune = props => {
     })
       .then(resp => resp.json())
       .then(data => {
-        console.log(data);
+
       })
       .catch(err => {
         console.log('AddTune fetch /create ERROR: ', err);
@@ -69,7 +69,11 @@ const AddTune = props => {
     .map((key, idx) => {
       return (
         <div key={idx} className="checkboxWithLabel">
-          <input type="checkbox" className="keyCheckbox" value={key} onChange={handleKeyCheck}></input>
+          <input 
+            type="checkbox" 
+            className="keyCheckbox" 
+            value={key} 
+            onChange={handleKeyCheck}></input>
           <span className="checkboxLabel">{key}</span>
         </div>
       );   
@@ -80,11 +84,20 @@ const AddTune = props => {
       <section className="mainAddTuneSection">
         <h3>Add tune</h3>
         <div className="inputTitle">     
-          <input name="title" placeholder="Title" value={title} onChange={titleOnChange} className="input" />
+          <input name="title"
+            placeholder="Title" 
+            value={title} 
+            onChange={titleOnChange} 
+            className="input" />
           {titleError ? (<span className="errorMsg">{titleError}</span>) : null}
         </div>
         <div className="inputComposer">       
-          <input name="inputComposer" placeholder="Composer" value={composer} onChange={composerOnChange}className="input" />
+          <input 
+            name="inputComposer" 
+            placeholder="Composer" 
+            value={composer} 
+            onChange={composerOnChange}
+            className="input" />
         </div>
         <div className="createTuneFields">
           <label htmlFor="keys">Keys: </label>
@@ -93,10 +106,20 @@ const AddTune = props => {
           </div>
           <div className="addTuneButtons">         
             <Link to="/" className="backLink">
-              <button type="button" className="btnSave" onClick={saveTune}>Save</button>
+              <button 
+                type="button" 
+                className="btnSave" 
+                onClick={saveTune}>
+                Save
+              </button>
             </Link>
             <Link to="/" className="backLink">
-              <button id="cancelButton" type="button" className="btnCancel">Cancel</button>
+              <button 
+                id="cancelButton" 
+                type="button" 
+                className="btnCancel">
+                Cancel
+              </button>
             </Link>
          
           </div>

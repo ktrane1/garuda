@@ -1,17 +1,10 @@
 import React, { Component, useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { Col, Row, Grid } from 'react-flexbox-grid'
+import { Col, Row, Grid } from 'react-flexbox-grid';
 //component for individual tune
 
 
 const Tune = (props) => {
-
-  const refreshTunes = () => {
-    window.location.reload(false);
-  };
-  
-  
-
 
   return (
     <div>
@@ -26,12 +19,21 @@ const Tune = (props) => {
         <Col xs={6} md={3} id='tuneKeys'>
           {props.tuneInfo.keys.join(', ')}   
         </Col>
+        <Link to={{
+          pathname: '/updateKeys',
+          state: {
+            tuneInfo: props.tuneInfo,
+          }
+        }} className="backLink" tuneInfo={props.tuneInfo}>
+          <button id="updateButton" type="button" className="btnUpdateKeys" >
+            Update keys
+          </button>
+        </Link>
         <Link to="/" className="backLink">
           <button id="removeButton" type="button" className="btnRemove" 
             onClick={
               () => 
-                props.removeTuneFunc(props.tuneInfo._id)
-            }>
+                props.removeTuneFunc(props.tuneInfo._id)}>
                 Remove
           </button>
         </Link>

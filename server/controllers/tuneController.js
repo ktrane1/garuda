@@ -50,4 +50,22 @@ tuneController.removeTune = (req, res, next) => {
     });
 };
 
+tuneController.updateKeys = (req, res, next) => {
+
+  Tune.findOneAndUpdate(
+    { _id: req.body.id },
+    { keys: [...Object.keys(req.body.keys)] }
+  )
+    .then(data => {
+      return next();
+    })
+    .catch(err => {
+      next({
+        message: 'Could not update',
+        err: err,
+      });
+    });
+
+};
+
 module.exports = tuneController;
