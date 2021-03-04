@@ -16,6 +16,7 @@ app.use(express.static(path.resolve(__dirname, '../client/index.html')));
 app.get('/', (req, res) => {
   return res.status(200).sendFile(path.resolve(__dirname, '../client/index.html'));
 });
+
 app.get('/create', (req, res) => {
   return res.status(200).sendFile(path.resolve(__dirname, '../client/index.html'));
 });
