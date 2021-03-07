@@ -56,7 +56,7 @@ const UpdateKeys = props => {
 
     
   const flat = '\u266D';
-  const keyCheckboxes = ['A', 'B' + flat, 'C', 'D' + flat, 'D', 'E' + flat, 'E', 'F', 'G' + flat, 'G', 'A' + flat]
+  const keyCheckboxes = ['A', 'B' + flat, 'B', 'C', 'D' + flat, 'D', 'E' + flat, 'E', 'F', 'G' + flat, 'G', 'A' + flat]
     .map((key, idx) => {
       return (
         <div 
@@ -101,7 +101,8 @@ const UpdateKeys = props => {
          
           <div 
             className="keyCheckboxContainer">
-            {keyCheckboxes}
+            {keyCheckboxes.slice(0, 6)}
+            {keyCheckboxes.slice(6, 12)}
           </div>
           <div className="updateKeysButtons">         
             <Link to="/" className="backLink">

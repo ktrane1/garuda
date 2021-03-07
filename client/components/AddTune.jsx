@@ -1,5 +1,6 @@
 import React, { Component, useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import { Col, Row, Grid } from 'react-flexbox-grid';
 
 const useInput = init => {
   const [ value, setValue ] = useState(init);
@@ -65,7 +66,7 @@ const AddTune = props => {
 
   
   const flat = '\u266D';
-  const keyCheckboxes = ['A', 'B' + flat, 'C', 'D' + flat, 'D', 'E' + flat, 'E', 'F', 'G' + flat, 'G', 'A' + flat]
+  const keyCheckboxes = ['A', 'B' + flat, 'B', 'C', 'D' + flat, 'D', 'E' + flat, 'E', 'F', 'G' + flat, 'G', 'A' + flat]
     .map((key, idx) => {
       return (
         <div key={idx} className="checkboxWithLabel">
@@ -100,9 +101,18 @@ const AddTune = props => {
             className="input" />
         </div>
         <div className="createTuneFields">
-          <label htmlFor="keys">Keys: </label>
+          <label htmlFor="keys" className="keysText">Keys: </label>
           <div className="keyCheckboxContainer">
-            {keyCheckboxes}
+            {/* <Grid fluid>
+              <Row>
+                <Col> */}
+            {keyCheckboxes.slice(0, 6)}
+            {/* </Col>
+              </Row>
+              <Col> */}
+            {keyCheckboxes.slice(6, 12)}
+            {/* </Col>
+            </Grid> */}
           </div>
           <div className="addTuneButtons">         
             <Link to="/" className="backLink">

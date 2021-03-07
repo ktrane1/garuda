@@ -16,8 +16,8 @@ html {
     background-color: $background-color;
 }
 main {
-    margin-right: 40px;
-    margin-left: 40px;
+    margin-right: 60px;
+    margin-left: 60px;
 }
 header {
     font-family: 'Karla';
@@ -41,6 +41,9 @@ button {
     font-size: 0.9rem;
     border-color: $button-color;
     border-style: none;
+    &:hover{
+        cursor: pointer;
+    }
   
 }
 
@@ -64,12 +67,20 @@ button {
         border-color: $background-color-dark;
     }
 }
+.btnUpdateKeys {
+    background-color: $background-color-light;
+    border-style: solid;
+    &:hover {
+        background-color: $button-color;
+    }
+}
 
 .addButton {
     background-color: $background-color-light;
     &:hover {
         background-color: $button-color;
     }
+    box-shadow: 0px 0px 2px 2px $shadow;
 }
 
 .tunesContainer {
@@ -84,6 +95,7 @@ button {
     background-color: $background-color-light;
     box-shadow: 0px 0px 2px 2px $shadow;
     padding: 0.3vw;
+    
 }
 
 #tuneTitle {
@@ -126,18 +138,28 @@ h3 {
     color: $primary-text-color
  };
  
-.checkboxWithLabel{
-    display: flex;
-    // flex-direction: column;
-    justify-content: center;
-    //align-content: center;
-    align-items: center;
+// .checkboxWithLabel{
+//     display: flex;
+//     // flex-direction: column;
+//     justify-content: center;
+//     //align-content: center;
+//     align-items: center;
   
-} ;
+// } ;
 
+.keyCheckboxContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+}
+
+.checkboxWithLabel {
+    display:flex;
+    justify-content: center;
+}
 .addTuneButtons {       
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 1vw;
 
@@ -147,12 +169,14 @@ h3 {
             background-color: $background-color-dark;
             border-color: $background-color-dark;
         }
+        margin: 1vw;
     }
     .btnSave {
         background-color:$button-color-highlight;
         &:hover{
             background-color: $button-color;
         }
+        margin: 1vw;
     }
 
 }
@@ -165,6 +189,7 @@ h3 {
     border-radius: 3px;
     font-family: 'Karla';
     font-size: 14px;
+    margin: 0.5vw;
 
 }
 
@@ -196,7 +221,7 @@ h3 {
 
 .updateKeysButtons {       
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     padding: 1vw;
 
@@ -206,12 +231,18 @@ h3 {
             background-color: $background-color-dark;
             border-color: $background-color-dark;
         }
+        margin: 1vw;
     }
     .btnUpdate {
         background-color:$button-color-highlight;
         &:hover{
             background-color: $button-color;
         }
+        margin: 1vw;
     }
 
+}
+
+.keysText {
+    align-content: center;
 }

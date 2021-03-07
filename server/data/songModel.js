@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const MONGO_URI = 'mongodb+srv://kushal:kushal@cluster0.islaj.mongodb.net/garuda?retryWrites=true&w=majority';
+require('dotenv').config()
 
-mongoose.connect(MONGO_URI, {
+mongoose.connect(process.env.MONGO_URI, {
   // options for the connect method to parse the URI
   useNewUrlParser: true,
   useUnifiedTopology: true,
