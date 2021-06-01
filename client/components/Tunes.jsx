@@ -51,27 +51,6 @@ class Tunes extends Component {
       
   }
 
-  updateKeys (keys)  {
-
-    // fetch('/remove', {
-    //   method: 'DELETE',
-    //   headers: {
-    //     'Content-Type': 'Application/JSON'
-    //   },
-    //   body: JSON.stringify({id: id})
-    // })
-    //   .then(resp => resp.json())
-    //   .then(tunes => {
-    //     this.setState({
-    //       tunes: [...tunes],
-    //     });
-    //   })
-    //   .catch(err => {
-    //     console.log('remoteTune fetch /remove ERROR: ', err);
-    //   });
-      
-  }
-
   render () {
 
     const tuneComponent = this.state.tunes.map((tune, idx) =>{
